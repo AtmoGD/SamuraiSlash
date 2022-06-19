@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 494387161}
   m_Layer: 0
   m_Name: Martial Hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987ff86b87698d341b8da4d657a50355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  samurai: {fileID: 0}
+  animator: {fileID: 1685671682650852061}
+  samurai: {fileID: 494387163}
 --- !u!95 &1685671682650852061
 Animator:
   serializedVersion: 4

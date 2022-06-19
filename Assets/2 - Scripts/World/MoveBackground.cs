@@ -14,21 +14,13 @@ public class MoveBackground : MonoBehaviour
     void Update()
     {
         x = transform.position.x;
+
+        if (loop & x <= dest)
+            x = startPoint;
+
         x += speed * gameController.WorldSpeedMultiplier * Time.deltaTime;
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
 
-        if (x <= dest)
-        {
-            if (loop)
-            {
-                x = startPoint;
-                transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 
     public void SetGameController(GameController gameController)

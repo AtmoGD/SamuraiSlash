@@ -20,23 +20,30 @@ public class SpawnController : MonoBehaviour
     IEnumerator SpawnPlatforms()
     {
         if (spawn)
-            SpawnPlatform();
+            NextPlatform();
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(SpawnPlatforms());
     }
 
-    void SpawnPlatform()
+    public void NextPlatform()
     {
         Platform platform = platformList.GetRandomPlatform();
         if (platform != null && platform.prefab != null)
         {
             GameObject newPlatform = Instantiate(platform.prefab, transform.position, Quaternion.identity);
+            Debug.Log("Spawning platform");
             // newPlatform.transform.parent = spawnParent;
 
             MoveBackground moveBackground = newPlatform.GetComponent<MoveBackground>();
             if (moveBackground != null) {
                 moveBackground.SetGameController(gameController);
                 moveBackground.transform.localPosition = new Vector3(moveBackground.startPoint, moveBackground.transform.localPosition.y, moveBackground.transform.localPosition.z);
+            }
+
+            PlatformController platformController = newPlatform.GetComponent<PlatformController>();
+            if (platformController != null)
+            {
+                platformController.Init(gameController);
             }
         }
     }

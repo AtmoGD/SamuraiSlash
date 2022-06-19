@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicPlattformList
   m_EditorClassIdentifier: 
   platforms:
-  - prefab: {fileID: 8171397381710820392, guid: 52607d72b329df44d8c2d84bd6bd3e1f, type: 3}
+  - prefab: {fileID: 8171397381710820392, guid: a04528fb828df3f48b5d700df24d2d9b, type: 3}
     spawnChance: 1
-  - prefab: {fileID: 8547588847703956612, guid: e112c215f12b4ff44a2261a6bd690290, type: 3}
+  - prefab: {fileID: 2596412211219282387, guid: e95d7e939ebce7f4998c22def9f9c996, type: 3}
     spawnChance: 1
