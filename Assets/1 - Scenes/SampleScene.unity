@@ -390,7 +390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.053548336, y: -0.06280811, z: -3.02}
+  m_LocalPosition: {x: 0.017968535, y: -0.06280811, z: -3.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -726,6 +726,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a04528fb828df3f48b5d700df24d2d9b, type: 3}
+--- !u!114 &677364292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1279744566, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+  m_PrefabInstance: {fileID: 1279744568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb5754903cbe7b46bdcd1d464ebee74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &769494710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,7 +5595,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 5.5290856, y: 1}
+    m_SensorSize: {x: 1.855337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5601,7 +5612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879891692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.053548336, y: -0.06280811, z: -3.02}
+  m_LocalPosition: {x: 0.017968535, y: -0.06280811, z: -3.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5624,6 +5635,66 @@ PrefabInstance:
       propertyPath: spawnController
       value: 
       objectReference: {fileID: 1555963659}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 33e41573-1b89-43de-a87a-9834959d0a14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Samurai/Dash[/Keyboard/shift]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 677364292}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: dashSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: dashCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: dashDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1555963660}
+    - target: {fileID: 1279744570, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1330120518, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: dest
       value: -7.99
@@ -5791,6 +5862,18 @@ PrefabInstance:
     - target: {fileID: 2156102585478702697, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_Name
       value: Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284395074417341061, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284395074417341061, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284395074417341061, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287764303965608457, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_IsActive

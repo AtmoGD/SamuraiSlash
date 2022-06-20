@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SamuraiFall : SamuraiState
 {
-    public SamuraiFall(Samurai _samurai) : base(_samurai) => Debug.Log("SamuraiFalling created");
+    public SamuraiFall(Samurai _samurai) : base(_samurai) { }
 
-    public override void Enter() => Debug.Log("Entering Falling State");
+    public override void Enter() { }
 
     public override void FrameUpdate()
     {
@@ -15,9 +15,12 @@ public class SamuraiFall : SamuraiState
 
         if (this.samurai.CurrentInput.jump && this.samurai.JumpCooldown <= 0f)
             samurai.SetState(samurai.JumpingState);
+
+        if (this.samurai.CurrentInput.dash && this.samurai.DashCooldown <= 0f)
+            samurai.SetState(samurai.DashState);
     }
 
-    public override void PhysicsUpdate() => Debug.Log("Updating Falling State");
+    public override void PhysicsUpdate() { }
 
-    public override void Exit() => Debug.Log("Exiting Falling State");
+    public override void Exit() { }
 }

@@ -15,4 +15,10 @@ public class PlayerInputController : InputController
         if (context.performed) Inputs.attack = true;
         if (context.canceled) Inputs.attack = false;
     }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.performed) Inputs.dash = true;
+        if (context.canceled) Inputs.dash = false;
+    }
 }

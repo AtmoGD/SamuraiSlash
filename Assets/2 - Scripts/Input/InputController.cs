@@ -19,4 +19,9 @@ public class InputController : MonoBehaviour
     {
         Inputs.attack = false;
     }
+
+    public void UseDash()
+    {
+        Inputs.dash = false;
+    }
 }

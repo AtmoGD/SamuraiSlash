@@ -5,10 +5,9 @@ using UnityEngine;
 public class SamuraiAttack : SamuraiState
 {
     private float attackTimer = 0f;
-    public SamuraiAttack(Samurai _samurai) : base(_samurai) => Debug.Log("SamuraiAttack created");
+    public SamuraiAttack(Samurai _samurai) : base(_samurai) { }
 
     public override void Enter() {
-        Debug.Log("Entering Attack State");
         attackTimer = 0f;
 
         this.samurai.Attack();
@@ -16,9 +15,9 @@ public class SamuraiAttack : SamuraiState
         this.samurai.SetState(this.samurai.FallingState);
     }
 
-    public override void FrameUpdate() => Debug.Log("Updating Attack State");
+    public override void FrameUpdate() { }
 
-    public override void PhysicsUpdate() => Debug.Log("Updating Attack State");
+    public override void PhysicsUpdate() { }
 
-    public override void Exit() => Debug.Log("Exiting Attack State");
+    public override void Exit() { }
 }
