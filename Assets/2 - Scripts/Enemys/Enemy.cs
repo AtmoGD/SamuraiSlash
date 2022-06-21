@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour, IAttackable
         
         died = true;
         anim.SetTrigger("Die");
-        Destroy(this.gameObject);
+        // Destroy(this.gameObject);
     }
 
     public void DestroyThis() {

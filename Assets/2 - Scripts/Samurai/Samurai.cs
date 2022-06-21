@@ -17,16 +17,25 @@ public class Samurai : MonoBehaviour, IAttackable
     [SerializeField] private GameController gameController;
     public GameController GameController { get { return gameController; } }
     [SerializeField] private InputController inputController;
+
     [SerializeField] private int life = 3;
     public int Life { get { return life; } }
+
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpCooldown = 0.5f;
+
     [SerializeField] public Transform attackCkeck;
     [SerializeField] private int attackStrenghtSmall = 1;
     [SerializeField] private int attackStrenghtBig = 2;
     [SerializeField] private float attackRange = 1f;
-    [SerializeField] private float jumpCooldown = 0.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private float attackUpForce = 1f;
+
+    [SerializeField] private float getHitSpeed = 0.6f;
+    public float GetHitSpeed { get { return getHitSpeed; } }
+    [SerializeField] private float getHitTime = 0.2f;
+    public float GetHitTime { get { return getHitTime; } }
+
     [SerializeField] private float dashSpeed = 10f;
     public float DashSpeed { get { return dashSpeed; } }
     [SerializeField] private float dashCooldown = 0.5f;
@@ -41,6 +50,7 @@ public class Samurai : MonoBehaviour, IAttackable
     public SamuraiFall FallingState { get; private set; }
     public SamuraiAttack AttackingState { get; private set; }
     public SamuraiDash DashState { get; private set; }
+    public SamuraiGetHit GetHitState { get; private set; }
 
     public float JumpCooldown { get; private set; }
     public float AttackCooldown { get; private set; }
@@ -61,6 +71,7 @@ public class Samurai : MonoBehaviour, IAttackable
         FallingState = new SamuraiFall(this);
         AttackingState = new SamuraiAttack(this);
         DashState = new SamuraiDash(this);
+        GetHitState = new SamuraiGetHit(this);
 
         SetState(FallingState);
     }
@@ -99,9 +110,9 @@ public class Samurai : MonoBehaviour, IAttackable
     public void TakeDamage(int _damage)
     {
         life -= _damage;
+        SetState(GetHitState);
         print("Samurai took " + _damage + " damage" + " and has " + Life + " life left");
-        if (life <= 0)
-            Die();
+        
     }
 
     public void TakeDamage(int _damage, Samurai _attacker)

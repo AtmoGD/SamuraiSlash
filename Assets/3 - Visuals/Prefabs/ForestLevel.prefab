@@ -227,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnController: {fileID: 9008534054143438769}
   worldSpeedMultiplier: 3
+  scoreMultiplier: 0.0003
+  gameOverLerpSpeed: 0.03
   player: {fileID: 1279744567}
 --- !u!114 &9008534054143438769
 MonoBehaviour:
@@ -243,7 +245,8 @@ MonoBehaviour:
   gameController: {fileID: 500890341}
   platformList: {fileID: 11400000, guid: 59e54c671fb669b4cb16b97148b6faf4, type: 2}
   spawnTime: 2
-  spawn: 0
+  spawnOnStart: 0
+  loop: 0
   spawnParent: {fileID: 2093717549977362062}
 --- !u!1 &3303948845157465760
 GameObject:
@@ -777,19 +780,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685671682650852062, guid: cb4e34b3757f9d345a9d6e0d340a29d4, type: 3}
       propertyPath: m_Name
-      value: Martial Hero
+      value: Samurai
       objectReference: {fileID: 0}
     - target: {fileID: 5284395073055283049, guid: cb4e34b3757f9d345a9d6e0d340a29d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.514
       objectReference: {fileID: 0}
     - target: {fileID: 5284395073055283049, guid: cb4e34b3757f9d345a9d6e0d340a29d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 5284395073055283049, guid: cb4e34b3757f9d345a9d6e0d340a29d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0103798425
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb4e34b3757f9d345a9d6e0d340a29d4, type: 3}
@@ -897,13 +900,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7657749990280552068}
     m_Modifications:
+    - target: {fileID: 163846736889446361, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 324584268488253342, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 520471360900752361, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
     - target: {fileID: 597850091076358669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091076358669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091076358669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -911,11 +926,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091106836749, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091106836749, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091106836749, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -923,11 +938,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091144588118, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091144588118, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091144588118, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -935,11 +950,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091422986132, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091422986132, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091422986132, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -947,11 +962,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091464530643, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091464530643, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091464530643, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -959,11 +974,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091585708164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091585708164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091585708164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -971,11 +986,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091592274669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091592274669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091592274669, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -983,11 +998,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091638290913, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091638290913, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091638290913, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -995,11 +1010,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091854558074, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091854558074, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091854558074, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1007,11 +1022,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850091962523634, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850091962523634, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850091962523634, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1019,11 +1034,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092083974237, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092083974237, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092083974237, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1031,11 +1046,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092363833116, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092363833116, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092363833116, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1043,11 +1058,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092380688858, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092380688858, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092380688858, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1055,11 +1070,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092628888704, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092628888704, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092628888704, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1067,11 +1082,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092656177876, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092656177876, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092656177876, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1079,11 +1094,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092914445305, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092914445305, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092914445305, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1091,11 +1106,11 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850092928473790, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850092928473790, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850092928473790, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1103,23 +1118,27 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 597850093000736409, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 597850093000736409, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597850093000736409, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 500890341}
+    - target: {fileID: 717683874018811274, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
     - target: {fileID: 717728739305922164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 717728739305922164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 717728739305922164, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
@@ -1127,13 +1146,77 @@ PrefabInstance:
       objectReference: {fileID: 500890341}
     - target: {fileID: 717728739584214762, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: dest
-      value: -100
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 717728739584214762, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 717728739584214762, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 744676397983843343, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 842222491868180658, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 984406165826295069, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1116697563278321611, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1299075673649650950, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1377253376812986410, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1413481096924604826, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1498314160941419209, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 1872527811916879427, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 2184036609948765521, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 2699681892309768701, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 2724786004196021962, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 2941652740461945445, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 3065601682808159375, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 3218908282393680572, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 3529400121616906911, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 500890341}
@@ -1181,10 +1264,138 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989736343704162998, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4047802239538160010, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4471732541124563553, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4487618117964298357, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4529942614626598421, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4920305486018450718, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 4955158280386092103, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5168446555073061264, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5322288450710038238, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5333966892518486311, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5349920749007961234, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5408981601033017581, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5470655240012691999, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5705995913208184844, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5746275834765293793, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5894038888117574617, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 5918985504238714879, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6243965147999294828, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6364418196387990948, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6540082195560655313, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6544850849888089235, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6815372847844088145, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 6949280705619660649, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 7149094451964288826, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 7320479219066355811, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 7644996604523381579, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
     - target: {fileID: 7842655334956915621, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7847525253695359011, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 7924569844308468062, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 8227350034822613233, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 8623041506913545617, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 8708759755517000859, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
+    - target: {fileID: 9011472838614319347, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 500890341}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 929d5c444f76a8f44a1874f8f0c19538, type: 3}
 --- !u!4 &3974731941726557205 stripped
