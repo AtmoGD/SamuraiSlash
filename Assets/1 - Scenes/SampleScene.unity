@@ -953,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: dashCheckDistance
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 163846737077432814, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: dest

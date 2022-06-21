@@ -4,21 +4,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerInputController : InputController
 {
+    bool dashReleased = true;
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed) Inputs.jump = true;
+        if (context.started) Inputs.jump = true;
         if (context.canceled) Inputs.jump = false;
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed) Inputs.attack = true;
+        if (context.started) Inputs.attack = true;
         if (context.canceled) Inputs.attack = false;
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.performed) Inputs.dash = true;
-        if (context.canceled) Inputs.dash = false;
+        if (dashReleased)
+        {
+            if (context.started)
+            {
+                Inputs.dash = true;
+                dashReleased = false;
+            }
+        }
+        if (context.canceled)
+        {
+            Inputs.dash = false;
+            dashReleased = true;
+        }
     }
 }

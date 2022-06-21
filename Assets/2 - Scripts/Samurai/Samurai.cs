@@ -139,6 +139,8 @@ public class Samurai : MonoBehaviour
 
         this.animator.SetBool("Dashing", true);
 
+        this.inputController.UseDash();
+
         // this.gameController.SetWorldSpeed(speed);
     }
 
@@ -158,5 +160,9 @@ public class Samurai : MonoBehaviour
             score += collect.ScoreAmount;
             collect.Die();
         }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawRay(dashCheck.position, Vector3.right * DashCheckDistance);
     }
 }
