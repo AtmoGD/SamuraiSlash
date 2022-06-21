@@ -19,8 +19,8 @@ public class Samurai : MonoBehaviour
     [SerializeField] private float attackUpForce = 1f;
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashCooldown = 0.5f;
-    [SerializeField] private float dashDistance = 10f;
-    public float DashDistance { get { return dashDistance; } }
+    [SerializeField] private float dashCheckDistance = 10f;
+    public float DashCheckDistance { get { return dashCheckDistance; } }
     [SerializeField] public Transform dashCheck;
 
     public Rigidbody2D rb { get; private set; }

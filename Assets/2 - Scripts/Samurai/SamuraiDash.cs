@@ -36,7 +36,7 @@ public class SamuraiDash : SamuraiState
 
     public override void PhysicsUpdate()
     {
-        RaycastHit2D hit = Physics2D.Linecast(this.samurai.dashCheck.position, this.samurai.dashCheck.position + Vector3.right * this.samurai.DashDistance);
+        RaycastHit2D hit = Physics2D.Linecast(this.samurai.dashCheck.position, this.samurai.dashCheck.position + Vector3.right * this.samurai.DashCheckDistance);
 
         if (hit.collider != null && hit.collider.tag.Equals("Platform"))
         {
