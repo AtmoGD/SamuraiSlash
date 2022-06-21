@@ -10,7 +10,10 @@ public class Samurai : MonoBehaviour
     public Action OnAttack;
     public Action OnDash;
     public Action OnDashEnd;
-    
+
+    [SerializeField] private float score = 0f;
+    public float Score { get { return score; } }
+
     [SerializeField] private GameController gameController;
     [SerializeField] private InputController inputController;
     [SerializeField] private float jumpForce = 10f;
@@ -76,6 +79,8 @@ public class Samurai : MonoBehaviour
     {
         this.CurrentState?.FrameUpdate();
 
+        score += Time.deltaTime * gameController.WorldSpeedMultiplier;
+
         if (this.JumpCooldown > 0f) this.JumpCooldown -= Time.deltaTime;
 
         if (this.AttackCooldown > 0f) this.AttackCooldown -= Time.deltaTime;
@@ -140,5 +145,14 @@ public class Samurai : MonoBehaviour
         this.gameController.SetWorldSpeed(this.oldWorldSpeedMultiplier);
 
         this.animator.SetBool("Dashing", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Collectable collect = other.GetComponent<Collectable>();
+
+        if(collect) {
+            score += collect.ScoreAmount;
+            collect.Die();
+        }
     }
 }

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 293722107056586676}
   - component: {fileID: 1685671682650852061}
   - component: {fileID: 494387159}
+  - component: {fileID: 198904991956321656}
   - component: {fileID: 494387158}
   - component: {fileID: 494387162}
   - component: {fileID: 494387161}
@@ -83,15 +84,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ffcfd77470b1148a7d4a6551498e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   gameController: {fileID: 0}
   inputController: {fileID: 494387162}
   jumpForce: 3.2
   jumpCooldown: 0.3
   attackCooldown: 0.3
   attackUpForce: 1.8
-  dashSpeed: 10
-  dashCooldown: 0.5
-  dashDistance: 3
+  dashSpeed: 3
+  dashCooldown: 0.25
+  dashCheckDistance: 0.2
   dashCheck: {fileID: 5284395073055283049}
 --- !u!212 &1685671682650852060
 SpriteRenderer:
@@ -200,6 +202,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!70 &198904991956321656
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685671682650852062}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.03}
+  m_Size: {x: 0.3, y: 0.6}
+  m_Direction: 0
 --- !u!70 &494387158
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

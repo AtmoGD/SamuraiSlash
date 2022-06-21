@@ -8,7 +8,10 @@ public class GameController : MonoBehaviour
     public SpawnController SpawnController { get { return spawnController; } }
 
     [SerializeField] private float worldSpeedMultiplier = 1f;
-    public float WorldSpeedMultiplier{ get { return worldSpeedMultiplier; } }
+    public float WorldSpeedMultiplier { get { return worldSpeedMultiplier; } }
+
+    [SerializeField] private Samurai player;
+    public Samurai Samurai { get { return player; } }
 
     public void SetWorldSpeed(float speed)
     {

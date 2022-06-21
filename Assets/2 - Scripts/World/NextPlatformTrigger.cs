@@ -7,16 +7,18 @@ public class NextPlatformTrigger : MonoBehaviour
     [SerializeField] private PlatformController level;
     [SerializeField] private string triggerTag;
 
+    bool triggered = false;
+
     private void Start() {
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == triggerTag)
+        if (!triggered && collision.gameObject.tag == triggerTag)
         {
+            triggered = true;
             level.GameController.SpawnController.NextPlatform();
-            Debug.Log("Player entered trigger ================================================");
         }
     }
 }
