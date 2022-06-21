@@ -24,8 +24,8 @@ public class Samurai : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f;
     public float DashSpeed { get { return dashSpeed; } }
     [SerializeField] private float dashCooldown = 0.5f;
-    [SerializeField] private float dashCheckDistance = 10f;
-    public float DashCheckDistance { get { return dashCheckDistance; } }
+    // [SerializeField] private float dashCheckDistance = 10f;
+    // public float DashCheckDistance { get { return dashCheckDistance; } }
     [SerializeField] public Transform dashCheck;
 
     public Rigidbody2D rb { get; private set; }
@@ -162,7 +162,7 @@ public class Samurai : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawRay(dashCheck.position, Vector3.right * DashCheckDistance);
-    }
+    // private void OnDrawGizmos() {
+    //     Gizmos.DrawRay(dashCheck.position, Vector3.right * DashCheckDistance);
+    // }
 }

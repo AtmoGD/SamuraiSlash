@@ -38,12 +38,12 @@ public class SamuraiDash : SamuraiState
 
     public override void PhysicsUpdate()
     {
-        RaycastHit2D hit = Physics2D.Linecast(this.samurai.dashCheck.position, this.samurai.dashCheck.position + Vector3.right * this.samurai.DashCheckDistance);
+        // RaycastHit2D hit = Physics2D.Linecast(this.samurai.dashCheck.position, this.samurai.dashCheck.position + Vector3.right * this.samurai.DashCheckDistance);
 
-        if (hit.collider != null && hit.collider.tag.Equals("Platform"))
-        {
-            this.samurai.SetState(this.samurai.FallingState);
-        }
+        // if (hit.collider != null && hit.collider.tag.Equals("Platform"))
+        // {
+        //     this.samurai.SetState(this.samurai.FallingState);
+        // }
         // RaycastHit2D[] hits = Physics2D.LinecastAll(this.samurai.dashCheck.position, this.samurai.dashCheck.position + Vector3.right * this.samurai.DashDistance);
         // foreach (RaycastHit2D hit in hits)
         // {
