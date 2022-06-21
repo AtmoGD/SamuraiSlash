@@ -15,12 +15,14 @@ public class Samurai : MonoBehaviour
     public float Score { get { return score; } }
 
     [SerializeField] private GameController gameController;
+    public GameController GameController { get { return gameController; } }
     [SerializeField] private InputController inputController;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpCooldown = 0.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private float attackUpForce = 1f;
     [SerializeField] private float dashSpeed = 10f;
+    public float DashSpeed { get { return dashSpeed; } }
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float dashCheckDistance = 10f;
     public float DashCheckDistance { get { return dashCheckDistance; } }
@@ -131,26 +133,28 @@ public class Samurai : MonoBehaviour
 
         this.DashCooldown = this.dashCooldown;
 
-        this.oldWorldSpeedMultiplier = this.gameController.WorldSpeedMultiplier;
+        // this.oldWorldSpeedMultiplier = this.gameController.WorldSpeedMultiplier;
 
-        float speed = this.gameController.WorldSpeedMultiplier * this.dashSpeed;
+        // float speed = this.gameController.WorldSpeedMultiplier * this.dashSpeed;
 
         this.animator.SetBool("Dashing", true);
 
-        this.gameController.SetWorldSpeed(speed);
+        // this.gameController.SetWorldSpeed(speed);
     }
 
     public void StopDash()
     {
-        this.gameController.SetWorldSpeed(this.oldWorldSpeedMultiplier);
+        // this.gameController.SetWorldSpeed(this.oldWorldSpeedMultiplier);
 
         this.animator.SetBool("Dashing", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         Collectable collect = other.GetComponent<Collectable>();
 
-        if(collect) {
+        if (collect)
+        {
             score += collect.ScoreAmount;
             collect.Die();
         }

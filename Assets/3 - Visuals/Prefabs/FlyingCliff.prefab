@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8968446930547667405}
   - component: {fileID: 1446504890371086672}
-  - component: {fileID: 108387175323088314}
+  - component: {fileID: 717736871879657109}
+  - component: {fileID: 2917508537077767135}
   m_Layer: 6
   m_Name: FlyingCliff
   m_TagString: Platform
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &108387175323088314
+--- !u!60 &717736871879657109
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,26 +111,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3454014, y: 0.01459858}
-      - {x: 0.38801524, y: 0.16212583}
-      - {x: 0.43310165, y: 0.2177007}
-      - {x: 0.44982624, y: 0.31097624}
-      - {x: 0.3752286, y: 0.35818875}
-      - {x: 0.018285573, y: 0.34425163}
-      - {x: -0.43588924, y: 0.32818878}
-      - {x: -0.48048782, y: 0.26477212}
-      - {x: -0.46884963, y: 0.20411052}
-      - {x: -0.40212598, y: 0.16017346}
-      - {x: -0.392126, y: 0.09526028}
-      - {x: -0.3500325, y: 0.02365473}
-      - {x: -0.26459858, y: -0.0983299}
-      - {x: -0.22557518, y: -0.11996773}
-      - {x: -0.1832754, y: -0.17899138}
-      - {x: -0.13721336, y: -0.22473982}
-      - {x: -0.11, y: -0.24}
-      - {x: -0.059511222, y: -0.2612908}
-      - {x: -0.00836277, y: -0.24177897}
-      - {x: 0.071463466, y: -0.19425166}
-      - {x: 0.146063, y: -0.16292861}
-      - {x: 0.22, y: -0.13177896}
-      - {x: 0.293937, y: -0.084739834}
+    - - {x: -0.2839235, y: -0.12231818}
+      - {x: 0.3193669, y: -0.11834282}
+      - {x: 0.3984499, y: 0.31385452}
+      - {x: -0.4047203, y: 0.3112264}
+--- !u!50 &2917508537077767135
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915035375533140381}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

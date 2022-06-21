@@ -21,6 +21,8 @@ public class SamuraiDash : SamuraiState
 
         this.samurai.Dash();
 
+        this.samurai.GameController.CustomSpeedModifier.Add(this.samurai.DashSpeed);
+
         // isDashing = true;
 
         this.startPos = this.samurai.transform.position;
@@ -60,5 +62,7 @@ public class SamuraiDash : SamuraiState
         // if (!isDashing) return;
 
         this.samurai.StopDash();
+
+        this.samurai.GameController.CustomSpeedModifier.Remove(this.samurai.DashSpeed);
     }
 }

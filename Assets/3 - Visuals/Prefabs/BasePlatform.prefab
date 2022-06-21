@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  maxDistance: 100
+  maxDistance: 30
 --- !u!50 &7152388437436503676
 Rigidbody2D:
   serializedVersion: 4
