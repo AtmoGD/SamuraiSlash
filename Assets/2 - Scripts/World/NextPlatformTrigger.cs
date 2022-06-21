@@ -9,10 +9,6 @@ public class NextPlatformTrigger : MonoBehaviour
 
     bool triggered = false;
 
-    private void Start() {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!triggered && collision.gameObject.tag == triggerTag)

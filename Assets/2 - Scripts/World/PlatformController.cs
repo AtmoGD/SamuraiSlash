@@ -16,8 +16,9 @@ public class PlatformController : MonoBehaviour
         gameController = _gameController;
     }
 
-    private void Update() {
-        if(-transform.position.x > maxDistance)
+    private void Update()
+    {
+        if (-transform.position.x > maxDistance)
         {
             DestroyImmediate(gameObject);
         }

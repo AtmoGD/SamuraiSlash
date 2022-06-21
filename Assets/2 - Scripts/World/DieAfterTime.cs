@@ -10,11 +10,12 @@ public class DieAfterTime : MonoBehaviour
     {
         time -= Time.deltaTime;
 
-        if(time < 0)
+        if (time < 0)
             Die();
     }
 
-    void Die() {
-        Destroy(this.gameObject);
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

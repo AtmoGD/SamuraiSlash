@@ -8,18 +8,19 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private PlatformList platformList;
     [SerializeField] private float spawnTime = 1f;
 
-    [SerializeField] private bool spawn;
+    [SerializeField] private bool spawnOnStart;
+    [SerializeField] private bool loop;
     [SerializeField] private Transform spawnParent;
 
     private void Start()
     {
-        if (spawn)
+        if (spawnOnStart)
             StartCoroutine(SpawnPlatforms());
     }
 
     IEnumerator SpawnPlatforms()
     {
-        if (spawn)
+        if (loop)
             NextPlatform();
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(SpawnPlatforms());
@@ -31,11 +32,10 @@ public class SpawnController : MonoBehaviour
         if (platform != null && platform.prefab != null)
         {
             GameObject newPlatform = Instantiate(platform.prefab, transform.position, Quaternion.identity);
-            Debug.Log("Spawning platform");
-            // newPlatform.transform.parent = spawnParent;
 
             MoveBackground moveBackground = newPlatform.GetComponent<MoveBackground>();
-            if (moveBackground != null) {
+            if (moveBackground != null)
+            {
                 moveBackground.SetGameController(gameController);
                 moveBackground.transform.localPosition = new Vector3(moveBackground.startPoint, moveBackground.transform.localPosition.y, moveBackground.transform.localPosition.z);
             }

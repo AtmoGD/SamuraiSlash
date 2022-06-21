@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5284395073055283049}
   m_Layer: 0
-  m_Name: DashCheck
+  m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223193578371404767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.054, y: 0.072, z: 0.0103798425}
+  m_LocalPosition: {x: 0.38, y: -0.039, z: 0.0103798425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,10 +42,8 @@ GameObject:
   - component: {fileID: 1685671682650852059}
   - component: {fileID: 494387163}
   - component: {fileID: 1685671682650852060}
-  - component: {fileID: 293722107056586676}
   - component: {fileID: 1685671682650852061}
   - component: {fileID: 494387159}
-  - component: {fileID: 198904991956321656}
   - component: {fileID: 494387158}
   - component: {fileID: 494387162}
   - component: {fileID: 494387161}
@@ -87,14 +85,17 @@ MonoBehaviour:
   score: 0
   gameController: {fileID: 0}
   inputController: {fileID: 494387162}
+  life: 3
   jumpForce: 3.2
+  attackCkeck: {fileID: 5284395073055283049}
+  attackStrenghtSmall: 1
+  attackStrenghtBig: 2
+  attackRange: 0.4
   jumpCooldown: 0.3
   attackCooldown: 0.3
   attackUpForce: 1.8
   dashSpeed: 3
   dashCooldown: 0.25
-  dashCheckDistance: 0.2
-  dashCheck: {fileID: 5284395073055283049}
 --- !u!212 &1685671682650852060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,20 +148,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &293722107056586676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685671682650852062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 987ff86b87698d341b8da4d657a50355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1685671682650852061}
-  samurai: {fileID: 494387163}
 --- !u!95 &1685671682650852061
 Animator:
   serializedVersion: 4
@@ -202,22 +189,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!70 &198904991956321656
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685671682650852062}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
-  m_Size: {x: 0.3, y: 0.6}
-  m_Direction: 0
 --- !u!70 &494387158
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -232,7 +203,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.1, y: 0.4}
+  m_Size: {x: 0.25, y: 0.5}
   m_Direction: 0
 --- !u!114 &494387162
 MonoBehaviour:

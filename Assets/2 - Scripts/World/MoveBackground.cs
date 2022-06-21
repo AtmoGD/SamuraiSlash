@@ -23,8 +23,8 @@ public class MoveBackground : MonoBehaviour
 
     }
 
-    public void SetGameController(GameController gameController)
+    public void SetGameController(GameController _gameController)
     {
-        this.gameController = gameController;
+        gameController = _gameController;
     }
 }

@@ -6,11 +6,11 @@ public class SamuraiJump : SamuraiState
 {
     public SamuraiJump(Samurai _samurai) : base(_samurai) { }
 
-    public override void Enter() {
-        Debug.Log("Entering Jumping State");
-        this.samurai.Jump();
+    public override void Enter()
+    {
+        samurai.Jump();
 
-        this.samurai.SetState(this.samurai.FallingState);
+        samurai.SetState(samurai.FallingState);
     }
 
     public override void FrameUpdate() { }

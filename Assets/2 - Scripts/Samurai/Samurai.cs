@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Samurai : MonoBehaviour
+public class Samurai : MonoBehaviour, IAttackable
 {
     public Action OnJump;
     public Action OnAttack;
@@ -17,21 +17,24 @@ public class Samurai : MonoBehaviour
     [SerializeField] private GameController gameController;
     public GameController GameController { get { return gameController; } }
     [SerializeField] private InputController inputController;
+    [SerializeField] private int life = 3;
+    public int Life { get { return life; } }
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] public Transform attackCkeck;
+    [SerializeField] private int attackStrenghtSmall = 1;
+    [SerializeField] private int attackStrenghtBig = 2;
+    [SerializeField] private float attackRange = 1f;
     [SerializeField] private float jumpCooldown = 0.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     [SerializeField] private float attackUpForce = 1f;
     [SerializeField] private float dashSpeed = 10f;
     public float DashSpeed { get { return dashSpeed; } }
     [SerializeField] private float dashCooldown = 0.5f;
-    // [SerializeField] private float dashCheckDistance = 10f;
-    // public float DashCheckDistance { get { return dashCheckDistance; } }
-    [SerializeField] public Transform dashCheck;
 
     public Rigidbody2D rb { get; private set; }
     public Animator animator { get; private set; }
 
-    public Inputs CurrentInput { get { return this.inputController.Inputs; } }
+    public Inputs CurrentInput { get { return inputController.Inputs; } }
     public SamuraiState CurrentState { get; private set; }
 
     public SamuraiJump JumpingState { get; private set; }
@@ -45,115 +48,132 @@ public class Samurai : MonoBehaviour
 
     private float oldWorldSpeedMultiplier;
 
-    // public bool CanDash {
-    //     get {
-    //         // Physics2D.LinecastAll
-    //         RaycastHit2D[] hits = Physics2D.LinecastAll(this.dashCheck.position, Vector2.right * this.dashDistance);
-    //         foreach (RaycastHit2D hit in hits) {
-    //             if (hit.collider.gameObject.tag == "Platform") {
-    //                 print("Can NOT dash");
-    //                 return false;
-    //             }
-    //         }
-
-    //         return true;
-    //     }
-    // }
-
     void Start()
     {
-        this.rb = GetComponent<Rigidbody2D>();
-        this.animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         JumpCooldown = 0f;
         AttackCooldown = 0f;
         DashCooldown = 0f;
 
-        this.JumpingState = new SamuraiJump(this);
-        this.FallingState = new SamuraiFall(this);
-        this.AttackingState = new SamuraiAttack(this);
-        this.DashState = new SamuraiDash(this);
+        JumpingState = new SamuraiJump(this);
+        FallingState = new SamuraiFall(this);
+        AttackingState = new SamuraiAttack(this);
+        DashState = new SamuraiDash(this);
 
-        SetState(this.FallingState);
+        SetState(FallingState);
     }
 
     void Update()
     {
-        this.CurrentState?.FrameUpdate();
+        CurrentState?.FrameUpdate();
 
         score += Time.deltaTime * gameController.WorldSpeedMultiplier;
 
-        if (this.JumpCooldown > 0f) this.JumpCooldown -= Time.deltaTime;
+        if (JumpCooldown > 0f) JumpCooldown -= Time.deltaTime;
 
-        if (this.AttackCooldown > 0f) this.AttackCooldown -= Time.deltaTime;
+        if (AttackCooldown > 0f) AttackCooldown -= Time.deltaTime;
 
-        if (this.DashCooldown > 0f) this.DashCooldown -= Time.deltaTime;
+        if (DashCooldown > 0f) DashCooldown -= Time.deltaTime;
+
+        animator.SetFloat("Speed", rb.velocity.y);
     }
 
     private void FixedUpdate()
     {
-        this.CurrentState?.PhysicsUpdate();
+        CurrentState?.PhysicsUpdate();
     }
-    public void SetState(SamuraiState state)
+    public void SetState(SamuraiState _state)
     {
-        this.CurrentState?.Exit();
-        this.CurrentState = state;
-        this.CurrentState?.Enter();
+        CurrentState?.Exit();
+        CurrentState = _state;
+        CurrentState?.Enter();
+    }
+
+    public void AddScore(float _score)
+    {
+        this.score += _score;
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        life -= _damage;
+        print("Samurai took " + _damage + " damage" + " and has " + Life + " life left");
+        if (life <= 0)
+            Die();
+    }
+
+    public void TakeDamage(int _damage, Samurai _attacker)
+    {
     }
 
     public void Jump()
     {
-        if (this.JumpCooldown > 0f) return;
+        if (JumpCooldown > 0f) return;
 
-        this.JumpCooldown = this.jumpCooldown;
+        JumpCooldown = jumpCooldown;
 
-        this.rb.velocity = Vector2.up * this.jumpForce;
+        rb.velocity = Vector2.up * jumpForce;
 
-        this.inputController.UseJump();
+        inputController.UseJump();
 
-        this.OnJump?.Invoke();
+        OnJump?.Invoke();
     }
 
     public void Attack()
     {
-        if (this.AttackCooldown > 0f) return;
+        if (AttackCooldown > 0f) return;
 
-        this.AttackCooldown = this.attackCooldown;
+        AttackCooldown = attackCooldown;
 
-        this.rb.velocity = Vector2.up * this.attackUpForce;
+        rb.velocity = Vector2.up * attackUpForce;
 
-        this.inputController.UseAttack();
+        animator.SetTrigger("Attack");
 
-        this.OnAttack?.Invoke();
+        inputController.UseAttack();
+
+        OnAttack?.Invoke();
+    }
+
+    public void CheckAttack()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(attackCkeck.position, attackRange, Vector2.zero);
+        foreach (RaycastHit2D hit in hits)
+        {
+            IAttackable attackable = hit.collider.GetComponent<IAttackable>();
+            if (attackable != null)
+            {
+                if (attackable is not Samurai)
+                    attackable.TakeDamage(attackStrenghtSmall, this);
+            }
+        }
     }
 
     public void Dash()
     {
-        if (this.DashCooldown > 0f) return;
+        if (DashCooldown > 0f) return;
 
-        this.DashCooldown = this.dashCooldown;
+        DashCooldown = dashCooldown;
 
-        // this.oldWorldSpeedMultiplier = this.gameController.WorldSpeedMultiplier;
+        animator.SetBool("Dashing", true);
 
-        // float speed = this.gameController.WorldSpeedMultiplier * this.dashSpeed;
-
-        this.animator.SetBool("Dashing", true);
-
-        this.inputController.UseDash();
-
-        // this.gameController.SetWorldSpeed(speed);
+        inputController.UseDash();
     }
 
     public void StopDash()
     {
-        // this.gameController.SetWorldSpeed(this.oldWorldSpeedMultiplier);
-
-        this.animator.SetBool("Dashing", false);
+        animator.SetBool("Dashing", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Die()
     {
-        Collectable collect = other.GetComponent<Collectable>();
+        gameController.EndGame();
+    }
+
+    private void OnTriggerEnter2D(Collider2D _other)
+    {
+        Collectable collect = _other.GetComponent<Collectable>();
 
         if (collect)
         {
@@ -162,7 +182,9 @@ public class Samurai : MonoBehaviour
         }
     }
 
-    // private void OnDrawGizmos() {
-    //     Gizmos.DrawRay(dashCheck.position, Vector3.right * DashCheckDistance);
-    // }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackCkeck.position, attackRange);
+    }
 }

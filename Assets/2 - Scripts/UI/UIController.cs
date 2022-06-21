@@ -4,17 +4,23 @@ using UnityEngine;
 using TMPro;
 public class UIController : MonoBehaviour
 {
-    [SerializeField] TMP_Text scoreText;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gamePanel;
+    [SerializeField] TMP_Text gameScoreText;
+    [SerializeField] TMP_Text endScoreText;
     [SerializeField] GameController gameController;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void Start() {
+        gameController.OnGameOver += GameOver;
     }
 
-    // Update is called once per frame
+    public void GameOver() {
+        endScoreText.text = ((int)(gameController.Samurai.Score)).ToString();
+        gameOverPanel.SetActive(true);
+        gamePanel.SetActive(false);
+    }
+
     void Update()
     {
-        scoreText.text = ((int)(gameController.Samurai.Score)).ToString();
+        gameScoreText.text = ((int)(gameController.Samurai.Score)).ToString();
     }
 }

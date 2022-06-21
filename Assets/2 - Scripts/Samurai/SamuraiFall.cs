@@ -10,13 +10,13 @@ public class SamuraiFall : SamuraiState
 
     public override void FrameUpdate()
     {
-        if(this.samurai.CurrentInput.attack && this.samurai.AttackCooldown <= 0f)
-            this.samurai.SetState(this.samurai.AttackingState);
+        if (samurai.CurrentInput.attack && samurai.AttackCooldown <= 0f)
+            samurai.SetState(samurai.AttackingState);
 
-        if (this.samurai.CurrentInput.jump && this.samurai.JumpCooldown <= 0f)
+        if (samurai.CurrentInput.jump && samurai.JumpCooldown <= 0f)
             samurai.SetState(samurai.JumpingState);
 
-        if (this.samurai.CurrentInput.dash && this.samurai.DashCooldown <= 0f)
+        if (samurai.CurrentInput.dash && samurai.DashCooldown <= 0f)
             samurai.SetState(samurai.DashState);
     }
 

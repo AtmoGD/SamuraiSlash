@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Platform {
+public class Platform
+{
     public GameObject prefab;
     public float spawnChance;
 }
@@ -32,7 +33,7 @@ public class PlatformList : ScriptableObject
         return null;
     }
 
-    
+
 }
 
 

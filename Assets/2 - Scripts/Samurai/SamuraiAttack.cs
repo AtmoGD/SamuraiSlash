@@ -7,12 +7,13 @@ public class SamuraiAttack : SamuraiState
     private float attackTimer = 0f;
     public SamuraiAttack(Samurai _samurai) : base(_samurai) { }
 
-    public override void Enter() {
+    public override void Enter()
+    {
         attackTimer = 0f;
 
-        this.samurai.Attack();
+        samurai.Attack();
 
-        this.samurai.SetState(this.samurai.FallingState);
+        samurai.SetState(samurai.FallingState);
     }
 
     public override void FrameUpdate() { }
