@@ -42,7 +42,7 @@ public class UIController : MonoBehaviour
         if(scoreSubmitted) return;
 
         scoreSubmitted = true;
-        highscores.CreateHighscore(nameInput.text, (int)gameController.Samurai.Score);
+        highscores.CreateHighscore(nameInput.text, int.Parse(endScoreText.text));
         highscores.GetHighscores(highscoreTexts.Count);
     }
 

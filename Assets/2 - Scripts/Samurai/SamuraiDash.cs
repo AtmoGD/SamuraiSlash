@@ -30,6 +30,8 @@ public class SamuraiDash : SamuraiState
     public override void PhysicsUpdate()
     {
         samurai.transform.position = startPos;
+
+        samurai.CheckDash();
     }
 
     public override void Exit()

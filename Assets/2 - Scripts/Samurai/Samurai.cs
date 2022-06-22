@@ -10,6 +10,8 @@ public class Samurai : MonoBehaviour, IAttackable
     public Action OnAttack;
     public Action OnDash;
     public Action OnDashEnd;
+    public Action OnDeath;
+    public Action OnUpdateLife;
 
     [SerializeField] private float score = 0f;
     public float Score { get { return score; } }
@@ -111,8 +113,7 @@ public class Samurai : MonoBehaviour, IAttackable
     {
         life -= _damage;
         SetState(GetHitState);
-        print("Samurai took " + _damage + " damage" + " and has " + Life + " life left");
-        
+        OnUpdateLife?.Invoke();
     }
 
     public void TakeDamage(int _damage, Samurai _attacker)
@@ -161,6 +162,20 @@ public class Samurai : MonoBehaviour, IAttackable
         }
     }
 
+    public void CheckDash()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(attackCkeck.position, attackRange, Vector2.zero);
+        foreach (RaycastHit2D hit in hits)
+        {
+            IAttackable attackable = hit.collider.GetComponent<IAttackable>();
+            if (attackable != null)
+            {
+                if (attackable is not Samurai)
+                    attackable.TakeDamage(attackStrenghtBig, this);
+            }
+        }
+    }
+
     public void Dash()
     {
         if (DashCooldown > 0f) return;
@@ -180,6 +195,7 @@ public class Samurai : MonoBehaviour, IAttackable
     public void Die()
     {
         gameController.EndGame();
+        OnDeath?.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D _other)
