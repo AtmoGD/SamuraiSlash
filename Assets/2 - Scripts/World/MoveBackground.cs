@@ -20,7 +20,6 @@ public class MoveBackground : MonoBehaviour
 
         x += speed * gameController.WorldSpeedMultiplier * Time.deltaTime;
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
-
     }
 
     public void SetGameController(GameController _gameController)

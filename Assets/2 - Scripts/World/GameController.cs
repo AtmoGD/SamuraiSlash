@@ -48,14 +48,16 @@ public class GameController : MonoBehaviour
         worldSpeedMultiplier = speed;
     }
 
-    public void EndGame() {
-        if(isGameOver) return;
+    public void EndGame()
+    {
+        if (isGameOver) return;
 
         isGameOver = true;
         OnGameOver?.Invoke();
     }
 
-    public void ReloadScene(){
+    public void ReloadScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

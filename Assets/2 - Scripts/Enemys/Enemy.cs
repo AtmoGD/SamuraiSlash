@@ -17,41 +17,45 @@ public class Enemy : MonoBehaviour, IAttackable
 
     bool died = false;
 
-    public void TakeDamage(int _amount) {
+    public void TakeDamage(int _amount)
+    {
         lifeLeft -= _amount;
 
-        if(lifeLeft <= 0)
+        if (lifeLeft <= 0)
             Die();
     }
 
-    public void TakeDamage(int _amount, Samurai _samurai) {
+    public void TakeDamage(int _amount, Samurai _samurai)
+    {
         lifeLeft -= _amount;
 
-        if (lifeLeft <= 0) {
+        if (lifeLeft <= 0)
+        {
             _samurai.AddScore(scoreAmount);
             Die();
         }
-        
     }
 
-    public void Die() {
-        if(died) return;
-        
+    public void Die()
+    {
+        if (died) return;
+
         died = true;
         anim.SetTrigger("Die");
-        // Destroy(this.gameObject);
     }
 
-    public void DestroyThis() {
+    public void DestroyThis()
+    {
         Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D _other) {
-        if(died) return;
+    private void OnCollisionEnter2D(Collision2D _other)
+    {
+        if (died) return;
 
         IAttackable attackable = _other.gameObject.GetComponent<IAttackable>();
-        if(attackable != null) {
-            print("Enemy hit");
+        if (attackable != null)
+        {
             attackable.TakeDamage(Damage);
             Die();
         }

@@ -19,42 +19,45 @@ public class UIController : MonoBehaviour
 
     bool scoreSubmitted = false;
 
-    private void Start() {
+    private void Start()
+    {
         gameController.OnGameOver += GameOver;
         gameController.Samurai.OnUpdateLife += UpdateLife;
         UpdateLife(gameController.Samurai.Life);
     }
 
-    public void GameOver() {
+    public void GameOver()
+    {
         endScoreText.text = ((int)(gameController.Samurai.Score)).ToString();
         gameOverPanel.SetActive(true);
         gamePanel.SetActive(false);
-        
+
         highscores.OnHighscoresReceived += UpdateHighscores;
         highscores.GetHighscores(highscoreTexts.Count);
-
-        
     }
 
-    public void UpdateHighscores(List<SingleNameScore> _highscores) {
-        for (int i = 0; i < highscoreTexts.Count; i++) {
+    public void UpdateHighscores(List<SingleNameScore> _highscores)
+    {
+        for (int i = 0; i < highscoreTexts.Count; i++)
+        {
             highscoreTexts[i].text = _highscores[i].name;
             highscoreValues[i].text = _highscores[i].score.ToString();
         }
     }
 
-    public void SubmitScore() {
-        if(scoreSubmitted) return;
+    public void SubmitScore()
+    {
+        if (scoreSubmitted) return;
 
         scoreSubmitted = true;
         highscores.CreateHighscore(nameInput.text, int.Parse(endScoreText.text));
         highscores.GetHighscores(highscoreTexts.Count);
     }
 
-    public void UpdateLife(int _life) {
-        for (int i = 0; i < lifeImages.Count; i++) {
+    public void UpdateLife(int _life)
+    {
+        for (int i = 0; i < lifeImages.Count; i++)
             lifeImages[i].SetActive(i < _life);
-        }
     }
 
     void Update()

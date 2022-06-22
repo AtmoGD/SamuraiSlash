@@ -11,13 +11,14 @@ public class Collectable : MonoBehaviour
     bool collected = false;
     public void Die()
     {
-        if(collected) return;
-        
+        if (collected) return;
+
         collected = true;
         anim.SetTrigger("Die");
     }
 
-    public void DestroyThis() {
+    public void DestroyThis()
+    {
         Destroy(this.gameObject);
     }
 }
