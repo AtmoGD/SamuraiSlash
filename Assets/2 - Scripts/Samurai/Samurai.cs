@@ -11,7 +11,7 @@ public class Samurai : MonoBehaviour, IAttackable
     public Action OnDash;
     public Action OnDashEnd;
     public Action OnDeath;
-    public Action OnUpdateLife;
+    public Action<int> OnUpdateLife;
 
     [SerializeField] private float score = 0f;
     public float Score { get { return score; } }
@@ -113,7 +113,7 @@ public class Samurai : MonoBehaviour, IAttackable
     {
         life -= _damage;
         SetState(GetHitState);
-        OnUpdateLife?.Invoke();
+        OnUpdateLife?.Invoke(Life);
     }
 
     public void TakeDamage(int _damage, Samurai _attacker)
