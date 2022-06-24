@@ -21,8 +21,12 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        gameOverPanel.SetActive(false);
+        gamePanel.SetActive(true);
+        
         gameController.OnGameOver += GameOver;
         gameController.Samurai.OnUpdateLife += UpdateLife;
+        
         UpdateLife(gameController.Samurai.Life);
     }
 
