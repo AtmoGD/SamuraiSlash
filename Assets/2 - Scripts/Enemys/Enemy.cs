@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CinemachineShaker;
 
 public class Enemy : MonoBehaviour, IAttackable
 {
     [SerializeField] private Animator anim;
+    [SerializeField] private ShakeOptions shakeEffect;
+    public ShakeOptions ShakeEffect { get { return shakeEffect; } }
     [SerializeField] private float scoreAmount = 50;
     public float ScoreAmount { get { return scoreAmount; } }
     [SerializeField] private float life = 1;
@@ -40,6 +43,9 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         if (died) return;
 
+        if(ShakeEffect != null)
+            CineShaker.Instance.Shake(ShakeEffect);
+            
         died = true;
         anim.SetTrigger("Die");
     }

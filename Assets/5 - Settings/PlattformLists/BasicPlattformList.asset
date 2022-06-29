@@ -15,3 +15,5 @@ MonoBehaviour:
   platforms:
   - prefab: {fileID: 8171397381710820392, guid: a04528fb828df3f48b5d700df24d2d9b, type: 3}
     spawnChance: 1
+  - prefab: {fileID: 8171397381710820392, guid: 6a11c6b08363ff643b666c2283e2faba, type: 3}
+    spawnChance: 1
