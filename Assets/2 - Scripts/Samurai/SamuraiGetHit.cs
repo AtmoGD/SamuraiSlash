@@ -9,8 +9,12 @@ public class SamuraiGetHit : SamuraiState
 
     public override void Enter()
     {
-        if (samurai.Life <= 0)
+        if (samurai.Life <= 0) {
             samurai.Die();
+            return;
+        }
+
+        samurai.animator.SetTrigger("Hit");
 
         hitTimer = samurai.GetHitTime;
 

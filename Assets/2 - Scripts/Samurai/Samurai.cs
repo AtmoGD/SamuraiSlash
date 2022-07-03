@@ -122,6 +122,7 @@ public class Samurai : MonoBehaviour, IAttackable
 
     public void TakeDamage(int _damage)
     {
+        
         life -= _damage;
         SetState(GetHitState);
         OnUpdateLife?.Invoke(Life);
