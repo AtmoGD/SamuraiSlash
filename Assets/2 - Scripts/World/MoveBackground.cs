@@ -18,7 +18,9 @@ public class MoveBackground : MonoBehaviour
         if (loop & x <= dest)
             x = startPoint;
 
-        x += speed * gameController.WorldSpeedMultiplier * Time.deltaTime;
+        if (gameController)
+            x += speed * gameController.WorldSpeedMultiplier * Time.deltaTime;
+        
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
 
