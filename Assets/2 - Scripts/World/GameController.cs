@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
     public Action OnGameOver;
 
+    [SerializeField] private Animator UIAnimator;
     [SerializeField] private SpawnController spawnController;
     public SpawnController SpawnController { get { return spawnController; } }
 
@@ -34,13 +36,15 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Samurai player;
     public Samurai Samurai { get { return player; } }
-
+    private bool isGameStarted = false;
     private bool isGameOver = false;
+    private bool isPaused = false;
+    private float lastGameOverTime = 1f;
 
     private void Awake()
     {
         CustomSpeedModifier = new List<float>();
-        Time.timeScale = 1f;
+        CustomSpeedModifier.Add(0f);
     }
 
     public void SetWorldSpeed(float speed)
@@ -48,23 +52,62 @@ public class GameController : MonoBehaviour
         worldSpeedMultiplier = speed;
     }
 
+    public void StartGame()
+    {
+        if (isGameStarted) return;
+
+        player.SetActive(true);
+        isGameStarted = true;
+        CustomSpeedModifier.Remove(0f);
+    }
+
     public void EndGame()
     {
         if (isGameOver) return;
 
+        lastGameOverTime = Time.timeScale;
         isGameOver = true;
         OnGameOver?.Invoke();
     }
 
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        UIAnimator.SetBool("GameEnd", true);
     }
-
     private void Update()
     {
         if (!isGameOver) return;
+        
+        CustomSpeedModifier.Remove(lastGameOverTime);
+        float newMod = Mathf.Lerp(lastGameOverTime, 0f, GameOverLerpSpeed);
+        CustomSpeedModifier.Add(newMod);
+        lastGameOverTime = newMod;
+    }
 
-        Time.timeScale = Mathf.Lerp(Time.timeScale, 0f, GameOverLerpSpeed);
+    public void OnStartGame(InputAction.CallbackContext context)
+    {
+        if (context.started) StartGame();
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(!isGameStarted || isGameOver) return;
+
+        if (context.started)
+            isPaused = !isPaused;
+
+        if (isPaused) Pause();
+        else PauseEnd();
+
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void PauseEnd()
+    {
+        Time.timeScale = 1f;
     }
 }

@@ -33,4 +33,10 @@ public class PlayerInputController : InputController
             dashReleased = true;
         }
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.started) Inputs.pause = true;
+        if (context.canceled) Inputs.pause = false;
+    }
 }

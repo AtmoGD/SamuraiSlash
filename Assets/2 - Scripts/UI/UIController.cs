@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using HighscorePlugin;
-
+using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     [SerializeField] GameController gameController;
@@ -47,6 +47,11 @@ public class UIController : MonoBehaviour
             highscoreTexts[i].text = _highscores[i].name;
             highscoreValues[i].text = _highscores[i].score.ToString();
         }
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SubmitScore()

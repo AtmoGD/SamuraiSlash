@@ -59,6 +59,7 @@ public class Samurai : MonoBehaviour, IAttackable
     public float DashCooldown { get; private set; }
 
     private float oldWorldSpeedMultiplier;
+    private bool isActive = false;
 
     void Start()
     {
@@ -78,8 +79,16 @@ public class Samurai : MonoBehaviour, IAttackable
         SetState(FallingState);
     }
 
+    public void SetActive(bool active)
+    {
+        isActive = active;
+        animator.SetBool("Active", active);
+    }
+
     void Update()
     {
+        if (!isActive) return;
+
         CurrentState?.FrameUpdate();
 
         score += Time.deltaTime * gameController.WorldSpeedMultiplier;
@@ -95,6 +104,8 @@ public class Samurai : MonoBehaviour, IAttackable
 
     private void FixedUpdate()
     {
+        if (!isActive) return;
+
         CurrentState?.PhysicsUpdate();
     }
     public void SetState(SamuraiState _state)
@@ -194,6 +205,8 @@ public class Samurai : MonoBehaviour, IAttackable
 
     public void Die()
     {
+        animator.SetTrigger("Die");
+        isActive = false;
         gameController.EndGame();
         OnDeath?.Invoke();
     }
