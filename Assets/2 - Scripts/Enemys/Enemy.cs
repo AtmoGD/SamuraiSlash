@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour, IAttackable
         }
     }
 
-    public void Die()
+    public void Die(bool playerCollision = false)
     {
         if (died) return;
 
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour, IAttackable
             CineShaker.Instance.Shake(ShakeEffect);
             
         died = true;
-        anim.SetTrigger("Die");
+        anim.SetTrigger(playerCollision ? "Die" : "Hit");
     }
 
     public void DestroyThis()
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour, IAttackable
         if (attackable != null)
         {
             attackable.TakeDamage(Damage);
-            Die();
+            Die(true);
         }
     }
 }
