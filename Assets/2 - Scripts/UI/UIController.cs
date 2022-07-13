@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] GameController gameController;
     [SerializeField] private Highscores highscores;
+    [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] TMP_Text gameScoreText;
@@ -21,13 +22,23 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        startPanel.SetActive(true);
         gameOverPanel.SetActive(false);
-        gamePanel.SetActive(true);
+        gamePanel.SetActive(false);
         
         gameController.OnGameOver += GameOver;
         gameController.Samurai.OnUpdateLife += UpdateLife;
+        highscores.OnHighscoresReceived += UpdateHighscores;
         
         UpdateLife(gameController.Samurai.Life);
+        LoadHighscores();
+    }
+
+    public void StartGame() {
+        startPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        gamePanel.SetActive(true);
+        gameController.StartGame();
     }
 
     public void GameOver()
@@ -35,8 +46,9 @@ public class UIController : MonoBehaviour
         endScoreText.text = ((int)(gameController.Samurai.Score)).ToString();
         gameOverPanel.SetActive(true);
         gamePanel.SetActive(false);
+    }
 
-        highscores.OnHighscoresReceived += UpdateHighscores;
+    public void LoadHighscores() {
         highscores.GetHighscores(highscoreTexts.Count);
     }
 

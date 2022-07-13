@@ -11,10 +11,18 @@ public class PlayerInputController : InputController
         if (context.canceled) Inputs.jump = false;
     }
 
+    public void OnJump() {
+        Inputs.jump = true;
+    }
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.started) Inputs.attack = true;
         if (context.canceled) Inputs.attack = false;
+    }
+
+    public void OnAttack() {
+        Inputs.attack = true;
     }
 
     public void OnDash(InputAction.CallbackContext context)
