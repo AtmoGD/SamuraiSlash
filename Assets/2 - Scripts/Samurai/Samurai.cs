@@ -19,6 +19,7 @@ public class Samurai : MonoBehaviour, IAttackable
     [SerializeField] private GameController gameController;
     public GameController GameController { get { return gameController; } }
     [SerializeField] private InputController inputController;
+    public InputController InputManager { get { return inputController; } }
 
     [SerializeField] private int life = 3;
     public int Life { get { return life; } }

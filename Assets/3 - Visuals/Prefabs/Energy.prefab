@@ -4862,7 +4862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8831953475369822120}
-  scoreAmount: 5
+  scoreAmount: 15
 --- !u!58 &5509147779299193721
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject touchPanel;
     [SerializeField] TMP_Text gameScoreText;
     [SerializeField] TMP_Text endScoreText;
     [SerializeField] List<TMP_Text> highscoreTexts = new List<TMP_Text>();
@@ -84,5 +85,7 @@ public class UIController : MonoBehaviour
     void Update()
     {
         gameScoreText.text = ((int)(gameController.Samurai.Score)).ToString();
+        
+        touchPanel.SetActive(gameController.Samurai.InputManager.Inputs.usingTouch);
     }
 }

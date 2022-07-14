@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     public Action OnGameOver;
 
     [SerializeField] private Animator UIAnimator;
+    // [SerializeField] private InputController inputController;
+    // public InputController InputManager { get { return inputController; } }
     [SerializeField] private SpawnController spawnController;
     public SpawnController SpawnController { get { return spawnController; } }
 

@@ -2911,6 +2911,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736511055}
   m_CullTransparentMesh: 1
+--- !u!1 &805578589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805578590}
+  m_Layer: 5
+  m_Name: TouchPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &805578590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805578589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1603686451}
+  - {fileID: 1892800694}
+  m_Father: {fileID: 1601258066}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &851840649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,20 +3804,56 @@ PrefabInstance:
       propertyPath: UIAnimator
       value: 
       objectReference: {fileID: 1850731096}
+    - target: {fileID: 500890341, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 1474352483}
+    - target: {fileID: 500890341, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: scoreMultiplier
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 500890341, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: worldSpeedMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionId
-      value: 9b9ad4a5-1568-4f1f-b8ba-c06161f8431d
+      value: d202dbd7-e359-41c2-b512-fc88cdbff12c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 57f595fa-aeea-4fd7-9c7d-67d9e15723ef
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 550df051-2875-46e6-b16a-2f847d309751
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionName
-      value: Samurai/Pause[/XInputControllerWindows/select,/Keyboard/p]
+      value: Samurai/Touch[/Touchscreen/press]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Samurai/Keyboard[/Keyboard/anyKey]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: Samurai/Mouse[/Mouse/press]
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
@@ -3787,23 +3861,75 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1555963660}
+      objectReference: {fileID: 1474352483}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1474352483}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1474352483}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPause
+      value: OnTouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnKeyboardMouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnKeyboardMouse
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameController, Assembly-CSharp
+      value: PlayerInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744565, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
@@ -3811,8 +3937,20 @@ PrefabInstance:
       value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: jumpForce
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744567, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: dashCooldown
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279744571, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 520471358962757086, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: speed
@@ -3925,6 +4063,10 @@ PrefabInstance:
     - target: {fileID: 5168446556474781607, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: speed
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284395074417341061, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6243965147129797467, guid: 0f434b590a278154fb06d53bb4b940e6, type: 3}
       propertyPath: speed
@@ -4671,8 +4813,7 @@ RectTransform:
   m_Children:
   - {fileID: 1028962223}
   - {fileID: 1267545052}
-  - {fileID: 1603686451}
-  - {fileID: 1892800694}
+  - {fileID: 805578590}
   m_Father: {fileID: 1850731094}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4712,13 +4853,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1601258066}
-  m_RootOrder: 2
+  m_Father: {fileID: 805578590}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -480, y: 0}
-  m_SizeDelta: {x: 960, y: 0}
+  m_AnchoredPosition: {x: 429.99994, y: 0}
+  m_SizeDelta: {x: 960, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603686452
 MonoBehaviour:
@@ -4764,6 +4905,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1474352483}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnUsingTouch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1474352483}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
         m_MethodName: OnAttack
@@ -5786,6 +5939,7 @@ MonoBehaviour:
   startPanel: {fileID: 1619960164}
   gameOverPanel: {fileID: 1153659446}
   gamePanel: {fileID: 1601258065}
+  touchPanel: {fileID: 805578589}
   gameScoreText: {fileID: 1028962224}
   endScoreText: {fileID: 292936069}
   highscoreTexts:
@@ -5987,12 +6141,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1601258066}
-  m_RootOrder: 3
+  m_Father: {fileID: 805578590}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 480, y: 0}
+  m_AnchoredPosition: {x: -429.99994, y: 0}
   m_SizeDelta: {x: 960, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892800695
@@ -6039,6 +6193,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1474352483}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: OnUsingTouch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1474352483}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
         m_MethodName: OnJump

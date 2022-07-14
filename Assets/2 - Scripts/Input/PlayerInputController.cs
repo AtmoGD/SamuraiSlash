@@ -47,4 +47,19 @@ public class PlayerInputController : InputController
         if (context.started) Inputs.pause = true;
         if (context.canceled) Inputs.pause = false;
     }
+
+    public void OnKeyboardMouse(InputAction.CallbackContext context) {
+        if (context.started) Inputs.usingTouch = false;
+    }
+
+    public void OnTouch(InputAction.CallbackContext context)
+    {
+        if (context.started) Inputs.usingTouch = true;
+    }
+
+    public void OnUsingTouch() {
+        print("Using touch");
+        Inputs.usingTouch = true;
+    }
+
 }
