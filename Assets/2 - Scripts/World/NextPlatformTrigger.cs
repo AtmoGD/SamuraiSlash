@@ -11,7 +11,7 @@ public class NextPlatformTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!triggered && collision.gameObject.tag == triggerTag)
+        if (!triggered && collision.gameObject.CompareTag(triggerTag))
         {
             triggered = true;
             level.GameController.SpawnController.NextPlatform();

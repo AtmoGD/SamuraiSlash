@@ -31,7 +31,12 @@ public class SpawnController : MonoBehaviour
         Platform platform = platformList.GetRandomPlatform();
         if (platform != null && platform.prefab != null)
         {
-            GameObject newPlatform = Instantiate(platform.prefab, transform.position, Quaternion.identity);
+            GameObject newPlatform;
+            if (spawnParent != null)
+                newPlatform = Instantiate(platform.prefab, spawnParent);
+            else
+                newPlatform = Instantiate(platform.prefab);
+            // GameObject newPlatform = Instantiate(platform.prefab, transform.position, Quaternion.identity);
 
             MoveBackground moveBackground = newPlatform.GetComponent<MoveBackground>();
             if (moveBackground != null)
