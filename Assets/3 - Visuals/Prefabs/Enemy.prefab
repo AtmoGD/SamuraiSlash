@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4800414916013775803}
   - component: {fileID: 4800414916013775801}
+  - component: {fileID: 3071588891900455352}
   - component: {fileID: 4800414916013775797}
   - component: {fileID: 4800414916013775798}
   - component: {fileID: 4800414916013775802}
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 4800414916013775799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.649, y: -0.582, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1.3333334}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 637909157721591705}
   - {fileID: 6552793922951491669}
@@ -55,6 +56,21 @@ MonoBehaviour:
   scoreAmount: 50
   life: 1
   damage: 1
+  dieSoundNames:
+  - EnemyDie
+--- !u!114 &3071588891900455352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800414916013775799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eff2a7962bba74ab06bac7d0f350aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReverseGravityOnStart: 0
 --- !u!70 &4800414916013775797
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -302,7 +318,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -5172,7 +5188,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -6613,15 +6629,15 @@ ParticleSystem:
     enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 2
       scalar: 20
-      minScalar: 0
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: -0.7530823
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6630,7 +6646,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6645,7 +6661,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 0.11727905
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6654,7 +6670,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: -0.94444275
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6666,8 +6682,8 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6719,8 +6735,8 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -7194,7 +7210,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    inWorldSpace: 0
+    inWorldSpace: 1
   InheritVelocityModule:
     enabled: 0
     m_Mode: 0
@@ -7808,7 +7824,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7965,7 +7981,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 2
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -7974,7 +7990,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2

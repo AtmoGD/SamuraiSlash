@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using AudioManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -43,6 +46,12 @@ public class GameController : MonoBehaviour
     private bool isPaused = false;
     private float lastGameOverTime = 1f;
 
+    [SerializeField] private Button startGameButton;
+
+    [SerializeField] private List<string> pauseSoundNames = new List<string>();
+    [SerializeField] private List<string> unpauseSoundNames = new List<string>();
+    [SerializeField] private List<string> gameOverSoundNames = new List<string>();
+
     private void Awake()
     {
         CustomSpeedModifier = new List<float>();
@@ -70,6 +79,7 @@ public class GameController : MonoBehaviour
         lastGameOverTime = Time.timeScale;
         isGameOver = true;
         OnGameOver?.Invoke();
+        AudioManager.Instance.PlayRandom(gameOverSoundNames);
     }
 
     public void ReloadScene()
@@ -79,7 +89,7 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         if (!isGameOver) return;
-        
+
         CustomSpeedModifier.Remove(lastGameOverTime);
         float newMod = Mathf.Lerp(lastGameOverTime, 0f, GameOverLerpSpeed);
         CustomSpeedModifier.Add(newMod);
@@ -88,12 +98,13 @@ public class GameController : MonoBehaviour
 
     public void OnStartGame(InputAction.CallbackContext context)
     {
-        if (context.started) StartGame();
+        // if (context.started) StartGame();
+        if (context.started) startGameButton.onClick.Invoke();
     }
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        if(!isGameStarted || isGameOver) return;
+        if (!isGameStarted || isGameOver) return;
 
         if (context.started)
             isPaused = !isPaused;
@@ -106,10 +117,14 @@ public class GameController : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0f;
+        AudioManager.Instance.PauseMusic();
+        AudioManager.Instance.PlayRandom(pauseSoundNames);
     }
 
     public void PauseEnd()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.PauseMusic();
+        AudioManager.Instance.PlayRandom(unpauseSoundNames);
     }
 }

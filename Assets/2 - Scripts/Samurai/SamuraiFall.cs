@@ -6,7 +6,10 @@ public class SamuraiFall : SamuraiState
 {
     public SamuraiFall(Samurai _samurai) : base(_samurai) { }
 
-    public override void Enter() { }
+    public override void Enter()
+    {
+        samurai.PlayRandomSound(samurai.fallSoundNames);
+    }
 
     public override void FrameUpdate()
     {
@@ -22,5 +25,8 @@ public class SamuraiFall : SamuraiState
 
     public override void PhysicsUpdate() { }
 
-    public override void Exit() { }
+    public override void Exit()
+    {
+        samurai.PauseSounds(samurai.fallSoundNames);
+    }
 }

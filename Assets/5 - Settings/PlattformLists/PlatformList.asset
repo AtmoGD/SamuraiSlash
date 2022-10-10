@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: PlatformList
   m_EditorClassIdentifier: 
   platforms:
-  - prefab: {fileID: 1021939379306095208, guid: 41d8773c97de5fe43bdd359313473fbf, type: 3}
+  - prefab: {fileID: 1021939379306095208, guid: d523fb863e7587d459ea7a61f82eb541, type: 3}
+    spawnChance: 1
+  - prefab: {fileID: 1021939379306095208, guid: b2d637609f8776c498608cdf81274d92, type: 3}
+    spawnChance: 1
+  - prefab: {fileID: 1021939379306095208, guid: 073f003980a83f04f83622e313f122d6, type: 3}
+    spawnChance: 1
+  - prefab: {fileID: 1021939379306095208, guid: ced2d97dca06cbe488946dc41b736d5a, type: 3}
+    spawnChance: 1
+  - prefab: {fileID: 1021939379306095208, guid: 9bbb6400f7de4cb4a8746adaf02b3c9b, type: 3}
     spawnChance: 1

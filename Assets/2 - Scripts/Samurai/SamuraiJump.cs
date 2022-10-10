@@ -10,6 +10,8 @@ public class SamuraiJump : SamuraiState
     {
         samurai.Jump();
 
+        samurai.PlayRandomSound(samurai.jumpSoundNames);
+
         samurai.SetState(samurai.FallingState);
     }
 

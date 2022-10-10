@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour, IAttackable
     public float Life { get { return life; } }
     [SerializeField] private int damage = 1;
     public int Damage { get { return damage; } }
+    [SerializeField] private List<string> dieSoundNames = new List<string>();
+
 
     private float lifeLeft = 1;
     public float LifeLeft { get { return lifeLeft; } }
@@ -43,11 +45,13 @@ public class Enemy : MonoBehaviour, IAttackable
     {
         if (died) return;
 
-        if(ShakeEffect != null)
+        if (ShakeEffect != null)
             CineShaker.Instance.Shake(ShakeEffect);
-            
+
         died = true;
         anim.SetTrigger(playerCollision ? "Die" : "Hit");
+
+        AudioManagement.AudioManager.Instance.PlayRandom(dieSoundNames);
     }
 
     public void DestroyThis()

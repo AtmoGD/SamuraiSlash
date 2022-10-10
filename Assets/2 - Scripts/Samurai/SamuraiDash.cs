@@ -16,14 +16,18 @@ public class SamuraiDash : SamuraiState
 
         samurai.GameController.CustomSpeedModifier.Add(samurai.DashSpeed);
 
+        samurai.PlayRandomSound(samurai.dashSoundNames);
+
         startPos = samurai.transform.position;
 
-        dashTimer = samurai.DashCooldown;
+        dashTimer = samurai.DashTime;
     }
 
     public override void FrameUpdate()
     {
-        if (samurai.DashCooldown < 0f)
+        dashTimer -= Time.deltaTime;
+
+        if (dashTimer < 0f)
             samurai.SetState(samurai.FallingState);
     }
 
