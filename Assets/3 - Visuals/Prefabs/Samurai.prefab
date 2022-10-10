@@ -101,11 +101,11 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  getHitSpeed: 0.2
+  getHitSpeed: 0.1
   getHitTime: 0.2
-  dashTime: 0.2
-  dashSpeed: 2.3
-  dashCooldown: 0.5
+  dashTime: 0.25
+  dashSpeed: 2.1
+  dashCooldown: 0.75
   jumpSoundNames:
   - Jump01
   - Jump02
@@ -242,8 +242,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.5}
+  m_Offset: {x: 0, y: -0.02}
+  m_Size: {x: 0.15, y: 0.4}
   m_Direction: 0
 --- !u!114 &5024136578479598440
 MonoBehaviour:

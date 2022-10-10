@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PauseMusic
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: b98443f838cec484eb1176d677938e7c, type: 3}
-  volumeMultiplier: 0.25
+  volumeMultiplier: 0.15
   pitch: 1
   loop: 1
   playOnAwake: 0

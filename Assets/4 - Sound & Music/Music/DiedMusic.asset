@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DiedMusic
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 9f02b051d599bde46b3001a6b55c80e9, type: 3}
-  volumeMultiplier: 0.25
+  volumeMultiplier: 0.15
   pitch: 1
   loop: 0
   playOnAwake: 0

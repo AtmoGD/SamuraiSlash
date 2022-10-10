@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4800414916013775802}
   shakeEffect: {fileID: 11400000, guid: 22b7830bd60b77946a1f22e9a47b9f99, type: 2}
-  scoreAmount: 50
+  scoreAmount: 150
   life: 1
   damage: 1
   dieSoundNames:

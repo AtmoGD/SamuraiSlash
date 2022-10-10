@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnterGameMusic
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 79768e28624e0c54d80a99b32f6598bf, type: 3}
-  volumeMultiplier: 0.25
+  volumeMultiplier: 0.15
   pitch: 1
   loop: 0
   playOnAwake: 0
