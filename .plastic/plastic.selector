@@ -1,4 +1,0 @@
-repository "SamuraiSlash@dennishawran_gmail_com@cloud"
-  path "/"
-    br "/main"
-    co "/main"
